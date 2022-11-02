@@ -1,0 +1,13 @@
+<h1>New score</h1>
+
+<%= render "form", score: @score %>
+
+<br>
+
+<div>
+  <% if (session[:who] == "scoreAll") %>
+    <%= link_to "Back to scores", scores_path %>
+  <% else %>
+    <%= link_to "Back to scores", "/students/#{session[:idSESS]}/edit_score" %>
+  <% end %>
+</div>

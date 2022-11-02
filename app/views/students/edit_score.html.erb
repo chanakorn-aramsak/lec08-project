@@ -1,0 +1,28 @@
+<h1>Editing student score</h1>
+
+<%= @student.name %>
+<strong> Max Point</strong>
+<%=@maxPoint %>
+<strong> Max Subject</strong>
+<%=@maxSubject %>
+<strong> Avg Point</strong>
+<%=@avgPoint %>
+<% @student.score.each do |score| %>
+  <div>
+  <%= render score %>
+  <%if session[:logged_in]%>
+   <%= link_to "Edit this score", edit_score_path(score) %> |
+  <%end%>
+  <%= link_to "Destroy this score", score, method: :delete %>
+  </div>
+<% end %>
+
+<br>
+
+<%= link_to "New score", new_score_path %>
+
+<hr>
+<div>
+  <%= link_to "Show this student", @student %> |
+  <%= link_to "Back to students", students_path %>
+</div>
